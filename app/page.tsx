@@ -157,93 +157,129 @@ export default function LandingPage() {
       </div>
 
       {/* Hero Section */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 pt-40 pb-24 md:pt-48 md:pb-32 min-h-screen flex flex-col items-center">
-        <motion.div 
-          style={{ y: yText, opacity: opacityText }}
-          className="flex flex-col items-center text-center max-w-5xl mx-auto relative z-10 w-full"
-        >
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: smoothEase }}
-            className="text-6xl md:text-8xl font-display font-bold tracking-tighter leading-[1.05] mb-6 text-zinc-900"
-          >
-            Venture Intelligence,<br />Accelerated by AI.
-          </motion.h1>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: smoothEase }}
-            className="text-xl md:text-2xl text-zinc-600 mb-10 max-w-3xl leading-relaxed font-medium tracking-tight"
-          >
-            Discover, enrich, and track high-growth startups in seconds. Built for modern investment teams who demand precision.
-          </motion.p>
-          
+      <main className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 min-h-screen flex flex-col justify-center">
+        
+        {/* Giant Ghost Typography */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden z-0">
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: smoothEase }}
-            className="flex flex-col sm:flex-row items-center gap-4"
+            style={{ y: yBg }}
+            className="text-[18vw] font-display font-black text-zinc-900/[0.03] whitespace-nowrap tracking-tighter select-none"
           >
-            <Link href="/login" className="group flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-full font-medium text-lg hover:bg-blue-700 transition-all duration-300 hover:shadow-[0_0_30px_rgba(37,99,235,0.3)] active:scale-95">
-              Start Scouting <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
-            <Link href="#features" className="flex items-center gap-2 bg-white/80 backdrop-blur-xl text-zinc-900 border border-zinc-200 shadow-sm px-8 py-4 rounded-full font-medium text-lg hover:bg-zinc-50 transition-all duration-300 active:scale-95">
-              Explore Platform
-            </Link>
+            INTELLIGENCE
           </motion.div>
-        </motion.div>
+        </div>
 
-        {/* Raycast-style Command Palette Mockup */}
-        <motion.div
-          style={{ y: yMockup }}
-          initial={{ opacity: 0, y: 100, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, delay: 0.4, ease: smoothEase }}
-          className="relative w-full max-w-3xl mt-20 rounded-2xl border border-zinc-200/80 bg-white/70 backdrop-blur-2xl shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden text-left z-20"
-        >
-          <div className="flex items-center px-5 py-4 border-b border-zinc-200/80 bg-white/50">
-            <Search className="w-6 h-6 text-zinc-400 mr-4" />
-            <span className="text-zinc-500 text-xl font-medium">Enrich company or search signals...</span>
-          </div>
-          <div className="p-3">
-            <div className="px-4 py-2 text-xs font-bold text-zinc-400 uppercase tracking-wider">Suggestions</div>
+        {/* Centerpiece: Translucent Glass Lens */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+          <motion.div 
+            style={{ y: yMockup }}
+            initial={{ opacity: 0, scale: 0.8, rotateX: 10, rotateY: -10 }}
+            animate={{ opacity: 1, scale: 1, rotateX: 15, rotateY: -15 }}
+            transition={{ duration: 1.5, ease: smoothEase }}
+            className="relative w-[400px] h-[400px] md:w-[550px] md:h-[550px] flex items-center justify-center"
+            style={{ perspective: '1000px' }}
+          >
+            {/* The Lens */}
+            <div className="w-full h-full rounded-full border border-white/50 bg-white/10 backdrop-blur-3xl shadow-[0_30px_100px_rgba(59,130,246,0.2),inset_0_0_80px_rgba(255,255,255,0.5)] flex items-center justify-center overflow-hidden relative" style={{ transformStyle: 'preserve-3d' }}>
+              {/* Inner glow and reflections */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-white/5 to-transparent"></div>
+              <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-400/30 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-indigo-400/30 rounded-full blur-3xl"></div>
+              
+              {/* Abstract Dashboard Elements inside the lens to give it depth */}
+              <div className="w-[80%] h-[80%] p-6 flex flex-col gap-4 opacity-60 transform rotate-12 scale-110">
+                <div className="w-1/3 h-6 bg-white/60 rounded-md backdrop-blur-md shadow-sm"></div>
+                <div className="w-full h-32 bg-white/50 rounded-xl backdrop-blur-md border border-white/40 shadow-sm"></div>
+                <div className="flex gap-4">
+                  <div className="w-1/2 h-24 bg-white/50 rounded-xl backdrop-blur-md border border-white/40 shadow-sm"></div>
+                  <div className="w-1/2 h-24 bg-white/50 rounded-xl backdrop-blur-md border border-white/40 shadow-sm"></div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Foreground Content */}
+        <div className="relative z-20 w-full h-full flex flex-col justify-between min-h-[70vh] mt-12">
+          
+          {/* Top/Center: Main Headline */}
+          <motion.div 
+            style={{ y: yText, opacity: opacityText }}
+            className="w-full max-w-4xl"
+          >
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: smoothEase }}
+              className="text-6xl md:text-8xl font-display font-bold tracking-tighter leading-[1.05] text-zinc-900 relative z-20"
+            >
+              Venture Intelligence,
+              <br />
+              <span className="relative inline-block mt-2">
+                <span className="font-serif italic text-blue-600 font-medium tracking-normal pr-4">Accelerated by AI.</span>
+              </span>
+            </motion.h1>
+          </motion.div>
+
+          {/* Bottom Asymmetrical Layout */}
+          <div className="flex flex-col md:flex-row justify-between items-end w-full mt-auto gap-12 pt-20">
             
-            <div className="flex items-center justify-between px-4 py-3.5 rounded-xl bg-blue-50 cursor-pointer mb-1">
+            {/* Bottom Left: Pitch & CTA */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: smoothEase }}
+              className="max-w-md"
+            >
+              <p className="text-lg md:text-xl text-zinc-800 leading-relaxed font-medium tracking-tight mb-8">
+                Discover, enrich, and track high-growth startups in seconds. Built for modern investment teams who demand precision.
+              </p>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-sm shadow-blue-600/20"><Sparkles className="w-5 h-5 text-white"/></div>
-                <div>
-                  <div className="text-blue-900 font-semibold text-base">Analyze Stripe</div>
-                  <div className="text-blue-600/80 text-sm">Extract summary, tech stack, and signals from stripe.com</div>
-                </div>
+                <Link href="/login" className="group flex items-center gap-2 bg-zinc-900 text-white px-6 py-3.5 rounded-full font-medium text-base hover:bg-black transition-all duration-300 hover:shadow-lg active:scale-95">
+                  Start Scouting <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
               </div>
-              <span className="text-xs text-blue-700 font-bold bg-blue-100/80 px-2.5 py-1.5 rounded-md flex items-center gap-1"><Command className="w-3 h-3"/> Enter</span>
-            </div>
+            </motion.div>
 
-            <div className="flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-zinc-50 cursor-pointer transition-colors mb-1">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center"><Filter className="w-5 h-5 text-zinc-600"/></div>
-                <div>
-                  <div className="text-zinc-800 font-semibold text-base">Filter Startups</div>
-                  <div className="text-zinc-500 text-sm">Show Series A companies in San Francisco</div>
-                </div>
+            {/* Bottom Right: Floating Glassmorphic Search Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: smoothEase }}
+              className="w-full md:w-[420px] rounded-2xl border border-white/60 bg-white/40 backdrop-blur-2xl shadow-[0_20px_40px_-10px_rgba(0,0,0,0.05)] overflow-hidden text-left"
+            >
+              <div className="flex items-center px-5 py-4 border-b border-white/40 bg-white/20">
+                <Search className="w-5 h-5 text-zinc-500 mr-3" />
+                <span className="text-zinc-600 text-sm font-medium">Enrich company or search signals...</span>
               </div>
-            </div>
+              <div className="p-3">
+                <div className="px-3 py-2 text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Suggestions</div>
+                
+                <div className="flex items-center justify-between px-3 py-2.5 rounded-xl bg-blue-50/80 cursor-pointer mb-1 border border-blue-100/50">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center shadow-sm shadow-blue-600/20"><Sparkles className="w-4 h-4 text-white"/></div>
+                    <div>
+                      <div className="text-blue-900 font-semibold text-sm">Analyze Stripe</div>
+                      <div className="text-blue-600/80 text-xs">Extract summary & tech stack</div>
+                    </div>
+                  </div>
+                  <span className="text-[10px] text-blue-700 font-bold bg-blue-100/80 px-2 py-1 rounded-md flex items-center gap-1"><Command className="w-3 h-3"/> Enter</span>
+                </div>
 
-            <div className="flex items-center justify-between px-4 py-3.5 rounded-xl hover:bg-zinc-50 cursor-pointer transition-colors">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center"><Download className="w-5 h-5 text-zinc-600"/></div>
-                <div>
-                  <div className="text-zinc-800 font-semibold text-base">Generate Tear-sheet</div>
-                  <div className="text-zinc-500 text-sm">Export Vercel profile to PDF</div>
+                <div className="flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-white/40 cursor-pointer transition-colors">
+                  <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-white/60 border border-white/80 flex items-center justify-center"><Filter className="w-4 h-4 text-zinc-600"/></div>
+                    <div>
+                      <div className="text-zinc-800 font-semibold text-sm">Filter Startups</div>
+                      <div className="text-zinc-500 text-xs">Series A in San Francisco</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
-        </motion.div>
+        </div>
       </main>
 
       {/* Trusted By Section */}
