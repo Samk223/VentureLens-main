@@ -76,9 +76,9 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="min-h-screen flex bg-[#f0f0f4] text-zinc-900 relative overflow-hidden selection:bg-blue-200">
+    <div className="min-h-screen flex flex-col lg:flex-row bg-[#f0f0f4] text-zinc-900 relative overflow-hidden selection:bg-blue-200">
       
-      {/* Animated Background with Parallax, Grids, and Noise */}
+      {/* Animated Background (Full Page) */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-[#f0f0f4]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000015_1px,transparent_1px),linear-gradient(to_bottom,#00000015_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_100%_100%_at_50%_0%,#000_90%,transparent_100%)] z-10"></div>
         
@@ -109,97 +109,110 @@ export default function AuthPage() {
         </svg>
       </div>
 
-      <div className="relative z-10 flex w-full min-h-screen">
-        {/* Left Side - Branding */}
-        <div className="hidden lg:flex lg:w-1/2 flex-col justify-center px-20 relative bg-white/10 backdrop-blur-md border-r border-white/20">
-          <Link href="/" className="absolute top-8 left-8 flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors bg-white/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/40 shadow-sm">
-            <ArrowLeft className="w-4 h-4" /> Back to home
-          </Link>
+      {/* Left Side - Branding & Stats (Glassmorphic) */}
+      <div className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center px-8 sm:px-20 py-20 lg:py-0 bg-white/20 lg:bg-white/10 backdrop-blur-md border-b lg:border-b-0 lg:border-r border-white/30">
+        <Link href="/" className="absolute top-8 left-8 flex items-center gap-2 text-sm font-bold text-zinc-600 hover:text-zinc-900 transition-colors bg-white/40 backdrop-blur-xl px-4 py-2 rounded-full border border-white/40 shadow-sm">
+          <ArrowLeft className="w-4 h-4" /> Back to home
+        </Link>
+        
+        <div className="max-w-md mx-auto lg:mx-0">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-md"
+            className="flex items-center gap-3 mb-10"
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="text-blue-600 p-1">
-                <Aperture className="w-12 h-12" />
-              </div>
-              <span className="text-2xl font-bold tracking-tight">VentureLens</span>
+            <div className="text-blue-600 p-1 bg-white/60 rounded-2xl shadow-sm border border-white/40">
+              <Aperture className="w-12 h-12" />
             </div>
-            
-            <h1 className="text-5xl font-bold tracking-tight leading-tight mb-6">
-              Discover and track<br />high-potential startups
-            </h1>
-            
-            <p className="text-lg text-zinc-500 mb-16 leading-relaxed font-medium">
-              Advanced company intelligence platform for investors, analysts, and operators. Filter, track, and analyze companies with precision.
-            </p>
+            <span className="text-3xl font-bold tracking-tighter">VentureLens</span>
+          </motion.div>
+          
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="text-5xl md:text-6xl font-bold tracking-tighter leading-[1.1] mb-8 text-zinc-900"
+          >
+            Venture Intelligence,<br />Redefined.
+          </motion.h1>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="text-xl text-zinc-600 mb-16 leading-relaxed font-medium"
+          >
+            The most powerful platform for modern investment teams to discover, enrich, and track high-growth startups.
+          </motion.p>
 
-            <div className="grid grid-cols-3 gap-8">
-              <div>
-                <div className="text-3xl font-bold mb-1">500+</div>
-                <div className="text-sm text-zinc-500 font-medium">Companies tracked</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold mb-1">12</div>
-                <div className="text-sm text-zinc-500 font-medium">Sectors covered</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold mb-1">Real-time</div>
-                <div className="text-sm text-zinc-500 font-medium">Signal tracking</div>
-              </div>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="grid grid-cols-3 gap-8 border-t border-black/5 pt-10"
+          >
+            <div>
+              <div className="text-3xl font-bold tracking-tighter mb-1">500+</div>
+              <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Tracked</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold tracking-tighter mb-1">12</div>
+              <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Sectors</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold tracking-tighter mb-1">Live</div>
+              <div className="text-xs font-bold text-zinc-500 uppercase tracking-widest">Signals</div>
             </div>
           </motion.div>
         </div>
+      </div>
 
-        {/* Right Side - Auth Form */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-center px-8 sm:px-20 relative bg-white/30 backdrop-blur-2xl">
-          <Link href="/" className="lg:hidden absolute top-8 left-8 flex items-center gap-2 text-sm font-medium text-zinc-500 hover:text-zinc-900 transition-colors bg-white/50 backdrop-blur-md px-4 py-2 rounded-full border border-white/40 shadow-sm">
-            <ArrowLeft className="w-4 h-4" /> Back
-          </Link>
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-md w-full mx-auto"
+      {/* Right Side - Auth Form (Deeper Glassmorphism) */}
+      <div className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center px-8 sm:px-20 py-20 lg:py-0 bg-white/40 lg:bg-white/20 backdrop-blur-2xl">
+        <div className="max-w-md w-full mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-white/40 backdrop-blur-xl border border-white/50 shadow-[0_20px_50px_rgba(0,0,0,0.05)] rounded-[2.5rem] p-10"
           >
-            <h2 className="text-3xl font-bold mb-2">
+            <h2 className="text-4xl font-bold mb-3 tracking-tight">
               {isLogin ? 'Welcome back' : 'Create account'}
             </h2>
-            <p className="text-zinc-500 mb-8 text-sm font-medium">
+            <p className="text-zinc-600 mb-10 font-medium">
               {isLogin ? 'Enter your credentials to continue' : 'Fill in your details to get started'}
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {!isLogin && (
                 <div>
-                  <label className="block text-sm font-semibold text-zinc-700 mb-1.5">Full name</label>
+                  <label className="block text-sm font-bold text-zinc-700 mb-2 ml-1">Full name</label>
                   <input
                     type="text"
                     required
                     placeholder="John Doe"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-white/50 border border-zinc-200/80 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white transition-all"
+                    className="w-full px-5 py-4 bg-white/50 border border-white/60 rounded-2xl text-base focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white transition-all shadow-sm"
                   />
                 </div>
               )}
 
               <div>
-                <label className="block text-sm font-semibold text-zinc-700 mb-1.5">Email</label>
+                <label className="block text-sm font-bold text-zinc-700 mb-2 ml-1">Email address</label>
                 <input
                   type="email"
                   required
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-2.5 bg-white/50 border border-zinc-200/80 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white transition-all"
+                  className="w-full px-5 py-4 bg-white/50 border border-white/60 rounded-2xl text-base focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white transition-all shadow-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-zinc-700 mb-1.5">Password</label>
+                <label className="block text-sm font-bold text-zinc-700 mb-2 ml-1">Password</label>
                 <div className="relative">
                   <input
                     type={showPassword ? 'text' : 'password'}
@@ -207,21 +220,21 @@ export default function AuthPage() {
                     placeholder="••••••••"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-4 py-2.5 bg-white/50 border border-zinc-200/80 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white transition-all pr-10"
+                    className="w-full px-5 py-4 bg-white/50 border border-white/60 rounded-2xl text-base focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white transition-all shadow-sm pr-12"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 transition-colors"
                   >
-                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                   </button>
                 </div>
               </div>
 
               {!isLogin && (
                 <div>
-                  <label className="block text-sm font-semibold text-zinc-700 mb-1.5">Confirm password</label>
+                  <label className="block text-sm font-bold text-zinc-700 mb-2 ml-1">Confirm password</label>
                   <div className="relative">
                     <input
                       type={showConfirmPassword ? 'text' : 'password'}
@@ -229,31 +242,39 @@ export default function AuthPage() {
                       placeholder="••••••••"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-white/50 border border-zinc-200/80 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white transition-all pr-10"
+                      className="w-full px-5 py-4 bg-white/50 border border-white/60 rounded-2xl text-base focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:bg-white transition-all shadow-sm pr-12"
                     />
                     <button
                       type="button"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600"
+                      className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 transition-colors"
                     >
-                      {showConfirmPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                     </button>
                   </div>
                 </div>
               )}
 
-              {error && <div className="text-red-500 text-sm text-center bg-red-50/50 py-2 rounded-lg border border-red-100">{error}</div>}
+              {error && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-red-600 text-sm font-bold text-center bg-red-50/80 backdrop-blur-sm py-3 rounded-xl border border-red-100"
+                >
+                  {error}
+                </motion.div>
+              )}
 
               <motion.button
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full py-3 bg-blue-600 text-white rounded-xl font-bold text-base hover:bg-blue-700 transition-colors mt-2 shadow-lg shadow-blue-600/20"
+                className="w-full py-4 bg-zinc-900 text-white rounded-2xl font-bold text-lg hover:bg-black transition-all mt-4 shadow-xl shadow-black/10 active:scale-95"
               >
                 {isLogin ? 'Sign In' : 'Create Account'}
               </motion.button>
             </form>
 
-            <div className="mt-6 text-center text-sm text-zinc-500">
+            <div className="mt-8 text-center text-sm font-medium text-zinc-500">
               {isLogin ? (
                 <>
                   Don't have an account?{' '}
@@ -270,10 +291,15 @@ export default function AuthPage() {
                 </>
               )}
             </div>
+          </motion.div>
 
-            <div className="mt-8 pt-6 border-t border-zinc-200/50 text-center text-xs text-zinc-400 leading-relaxed font-medium">
-              Credentials are stored locally in your browser's localStorage. Data persists across sessions but is cleared if you clear browser data.
-            </div>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="mt-10 text-center text-xs text-zinc-400 font-medium leading-relaxed max-w-[280px] mx-auto"
+          >
+            Credentials are stored locally in your browser's localStorage for this preview.
           </motion.div>
         </div>
       </div>
