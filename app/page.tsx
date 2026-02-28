@@ -249,15 +249,43 @@ export default function LandingPage() {
         </motion.div>
       </main>
 
-      {/* Trusted By Section */}
-      <section className="relative z-10 py-12 border-y border-zinc-200/50 bg-white/40 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-sm font-semibold text-zinc-400 uppercase tracking-widest mb-8">Trusted by analysts at leading funds</p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 grayscale">
-            {['Sequoia', 'Andreessen Horowitz', 'Lightspeed', 'Founders Fund', 'Index Ventures'].map((name, i) => (
-              <span key={i} className="text-xl md:text-2xl font-bold tracking-tighter text-zinc-900">{name}</span>
+      {/* Trusted By Section (Infinite Marquee) */}
+      <section className="relative z-10 py-16 border-y border-zinc-200/50 bg-white/40 backdrop-blur-md overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 text-center mb-12">
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-sm font-bold text-zinc-400 uppercase tracking-[0.2em]"
+          >
+            Trusted by analysts at leading funds
+          </motion.p>
+        </div>
+        
+        <div className="relative flex items-center">
+          {/* Gradient Masks for smooth edge fading */}
+          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-[#f0f0f4] to-transparent z-20 pointer-events-none hidden md:block"></div>
+          <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-[#f0f0f4] to-transparent z-20 pointer-events-none hidden md:block"></div>
+          
+          <motion.div 
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+            className="flex flex-nowrap gap-16 md:gap-32 items-center whitespace-nowrap opacity-40 grayscale hover:opacity-70 transition-opacity duration-700"
+          >
+            {/* Triple the items to ensure the marquee never shows a gap on wide screens */}
+            {[...Array(3)].map((_, groupIdx) => (
+              <div key={groupIdx} className="flex items-center gap-16 md:gap-32">
+                {['Sequoia', 'Andreessen Horowitz', 'Lightspeed', 'Founders Fund', 'Index Ventures'].map((name, i) => (
+                  <span 
+                    key={`${groupIdx}-${i}`} 
+                    className="text-2xl md:text-4xl font-bold tracking-tighter text-zinc-900 select-none"
+                  >
+                    {name}
+                  </span>
+                ))}
+              </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
